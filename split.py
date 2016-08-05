@@ -193,6 +193,9 @@ if __name__ == "__main__":
     parser_split.add_argument("-c", "--commands",
             default=None,
             help="prefix for command output files")
+    parser_split.add_argument("-t", "--title",
+                              default="Book",
+                              help="Title to add to output metadata")
     parser_split.add_argument("audios", nargs="+",
             help="audio files with chapters.txt annotations")
 
@@ -293,7 +296,7 @@ if __name__ == "__main__":
 
         for num, output in enumerate(outputs[1:]):
             metadata = {"title": "{} ch{} - {}".format(
-                "A Storm of Swords", num, output["name"].capitalize()),
+                args.title, num, output["name"].capitalize()),
                 "track": num+1}
             out_fname = "ch{:02}-{}".format(num, output["name"])
             out_path = path.join(args.output_dir, out_fname + ".mp3")
