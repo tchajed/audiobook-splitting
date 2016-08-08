@@ -4,7 +4,7 @@ Tools to re-split audiobooks into a file per chapter. Chapters are identified by
 
 The workflow is extremely hacky, but it works for me for _A Song of Ice and Fire_, where chapter headings contain the POV character and thus are meaningful and easily identified. If you think some part of this is useful but the code is too specific, please open an issue describing what your situation looks like and I'd be happy to start generalizing! Likewise, if the process is too complicated but you think this would be useful feel free to open an issue.
 
-In particular, this is what my situation looks like. The book is split into 30-40 1 hour 15 minute parts. Each part contains multiple chapters, and occasionally the last chapter in a file is continued in the next. Chapters are introduced by the name of the POV character ("Eddard", "Arya", etc). In the end, I want a file per chapter with its number and the POV character, matching the affordances I get from the digital version of the book.
+In particular, this is what my situation looks like. The book is split into around 35, 1 hour 15 minute-long parts. Each part contains multiple chapters, and occasionally the last chapter in a part is continued in the next. Chapters are introduced by the name of the POV character ("Eddard", "Arya", etc). In the end, I want a file per chapter with its number and the POV character, matching the affordances I get from the digital version of the book.
 
 ## Workflow
 
@@ -52,4 +52,4 @@ In greater detail, here's how to split and audiobook with `split.py`.
 
    The `-c <prefix>` option creates files `<prefix>-1-cut` and `<prefix>-2-concat` - the first only segments files, while the latter re-combines chapters that were split across part file boundaries. Splitting takes about 20 minutes on 4 cores for a 50 hour audiobook, while concatenation only takes 30 seconds.
 
-To make debugging easier, `split.py find` actually reads any existing chapters.txt file and saves names in it, to avoid losing work - if the parameters are already work, though, there should be no need to take advantage of this. The output `mp3` files are named `ch{num}-{name}.mp3` and are tagged with a track number (the same num) and are titled `{title} ch{num} - {Name}`, where `{Name}` is the chapter name with the first letter capitalized.
+To make debugging easier, `split.py find` actually reads any existing chapters.txt file and saves names in it, to avoid losing work - if the parameters there already work, though, there should be no need to take advantage of this. The output `mp3` files are named `ch{num}-{name}.mp3` and are tagged with a track number (the same num) and are titled `{title} ch{num} - {Name}`, where `{Name}` is the chapter name with the first letter capitalized.
