@@ -297,10 +297,18 @@ if __name__ == "__main__":
             concat_f = open(args.commands + "-2-concat", "w")
             nop = True
 
+        def shellquote(s):
+            if re.match("^[a-zA-Z0-9-_.]*$", s):
+                return s
+            s = s.replace("\\", "\\\\")
+            s = s.replace("$", "\$")
+            s = s.replace("'", "\\'")
+            return "'{}'".format(s)
+
         def write_cmd(cmd, f):
             if f is None:
                 return
-            quoted = [cmd[0]] + ["'{}'".format(arg) for arg in cmd[1:]]
+            quoted = [cmd[0]] + [shellquote(arg) for arg in cmd[1:]]
             cmdline = " ".join(quoted)
             f.write(cmdline + "\n")
 
