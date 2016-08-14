@@ -27,7 +27,7 @@ import os
 from os import path
 
 MIN_SILENCE_DURATION_SEC = 1.5
-MAXIMUM_CHAPTER_HEADER_SEC = 1.5
+MAXIMUM_CHAPTER_HEADER_SEC = 2
 
 class Silence:
     # start and end are in seconds
