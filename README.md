@@ -10,9 +10,9 @@ In particular, this is what my situation looks like. The book is split into arou
 
 In greater detail, here's how to split and audiobook with `split.py`.
 
-1. Run `split.py find` on every `.mp3` file, producing a bunch of files called `$file-chapters.txt`. I do this using GNU parallel:
+1. Run `split.py find` on every `.mp3` file, producing a bunch of files called `$file-chapters.txt`. I do this using GNU parallel (after adding the path to audiobook-splitting to my `$PATH`):
     ```
-    $ parallel ~/dropbox/reading/audiobooks/split.py find ::: *.mp3
+    $ parallel --eta split.py find ::: *.mp3
     ```
 
     This takes around 5 minutes on a 50 hour audiobook for me, on 4 cores.
