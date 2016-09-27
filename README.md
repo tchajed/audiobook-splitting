@@ -50,6 +50,6 @@ In greater detail, here's how to split and audiobook with `split.py`.
 
    Note that the order of `*.mp3` files given is significant, since it determines what file the continuation of a chapter comes from, as well as the overall ordering.
 
-   The `-c <prefix>` option creates files `<prefix>-1-cut` and `<prefix>-2-concat` - the first only segments files, while the latter re-combines chapters that were split across part file boundaries. Splitting takes about 20 minutes on 4 cores for a 50 hour audiobook, while concatenation only takes 30 seconds.
+   The `-c <prefix>` option creates files `<prefix>-1-cut` and `<prefix>-2-concat` - the first only segments files, while the latter re-combines chapters that were split across file boundaries. Both of these operations are very fast: on my laptop, cutting takes 30s for a 50 hour audiobook while concatenation takes 10s.
 
 To make debugging easier, `split.py find` actually reads any existing chapters.txt file and saves names in it, to avoid losing work - if the parameters there already work, though, there should be no need to take advantage of this. The output `mp3` files are named `ch{num}-{name}.mp3` and are tagged with a track number (the same num) and are titled `{title} ch{num} - {Name}`, where `{Name}` is the chapter name with the first letter capitalized.

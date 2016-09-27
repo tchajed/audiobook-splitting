@@ -138,6 +138,7 @@ def cut_audio(fname, start, duration, output, metadata, nop=False):
             "-i", fname] + \
                     metadata_args(metadata) + \
                     ["-loglevel", "quiet"] + \
+                    ["-acodec", "copy"] + \
                     start_args + \
                     duration_args + \
                     [output]
