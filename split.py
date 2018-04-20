@@ -102,7 +102,7 @@ def detect_silences(fname):
         "ffmpeg", "-i", fname,
         "-hide_banner",
         "-af",
-        "silencedetect=d={}:noise=0.001".format(
+        "silencedetect=d={}:noise=-30dB".format(
             MIN_SILENCE_DURATION_SEC),
         "-f", "null", "-"], stderr=subprocess.STDOUT)
     silences = []
