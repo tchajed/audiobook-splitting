@@ -172,7 +172,8 @@ def group_silences(silences):
             # clear and append
             silence_groups.append(silence_group)
             silence_group = [silence]
-    silence_groups.append(silence_group)
+    if silence_group:
+        silence_groups.append(silence_group)
     return silence_groups
 
 def load_chapters(fname, f):
