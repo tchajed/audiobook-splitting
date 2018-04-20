@@ -23,7 +23,7 @@ In greater detail, here's how to split and audiobook with `split.py`.
     Note that each chapter has a block of text with
     * CHAPTER/END begin and end markers - these are needed for parsing.
     * A `NAME: ` property for you to fill in.
-    * A `CMD: ` property giving a commandline for `ffplay` (part of ffmpeg - on OS X, Homebrew by default does not include this program, but you can get it with `brew install --with-ffplay ffmpeg`) that plays the heading of the chapter.
+    * A `CMD: ` property giving a commandline for `ffplay` (part of ffmpeg - on OS X, Homebrew by default does not include this program, but you can get it with `brew install --with-sdl2 ffmpeg`) that plays the heading of the chapter.
     * A `START: ` property giving the offset (in seconds) into the file where this heading starts. This determines the split point for this chapter.
     * (for debugging) The silences surrounding this heading, as offsets in seconds into the file.
 
